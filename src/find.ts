@@ -15,7 +15,11 @@ const main = async () => {
 
   const findUniq = await prisma.post.findUnique({
     where: {
-      id: 2,
+      id: 11,
+    },
+    select: {
+      title: true,
+      authorName: true,
     },
   });
 
