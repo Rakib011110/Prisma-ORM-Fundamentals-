@@ -21,11 +21,48 @@ id Int @id @default(autoincrement())
 title String  
 content String
 published Boolean @default(false)
-authorName String? 
+authorId Int? 
 createdAt DateTime @default(now())
 updatedAt DateTime @updatedAt
 
 @@map("posts")
 
 }
+
+
+model User {
+  id Int @id @default(autoincrement())
+  userName String @unique 
+  email String 
+  role UserRole
+  @@map("users")
+  Profile Profile?
+}
+enum UserRole {
+  user
+  admin
+}
+
+model Profile {
+id Int @id @default(autoincrement())
+bio String?
+userId Int @unique
+user  User @relation(fields: [userId], references: [id])
+
+@@map("profiles")
+}
+
+
+
+
+model Category{
+id Int  @id @default(autoincrement())
+
+name String
+
+@@map("categories")
+
+
+}
+
 

@@ -7,7 +7,21 @@ const paginationShorting = async () => {
     skip: 5,
     take: 1,
   });
+  const coursorData = await prisma.post.findMany({
+    skip: 5,
+    take: 1,
+    cursor: {
+      id: 11,
+    },
+  });
 
-  console.log(offesetData);
+  const sortingData = await prisma.post.findMany({
+    orderBy: {
+      title: "desc",
+    },
+    where: {
+      title: "Working with Schemas",
+    },
+  });
 };
 paginationShorting();
