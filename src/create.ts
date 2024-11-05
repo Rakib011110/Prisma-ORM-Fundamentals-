@@ -29,13 +29,7 @@ const main = async () => {
       content: "this is new content",
       authorId: 1,
       postCategory: {
-        create: {
-          catergory: {
-            connect: {
-              id: 1,
-            },
-          },
-        },
+        create: [{ catergoryId: 1 }, { catergoryId: 2 }, { catergoryId: 3 }],
       },
     },
     include: {

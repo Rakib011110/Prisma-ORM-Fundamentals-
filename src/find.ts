@@ -19,7 +19,7 @@ const main = async () => {
     },
     select: {
       title: true,
-      authorName: true,
+      author: true,
     },
   });
 
