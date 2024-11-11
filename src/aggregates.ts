@@ -38,6 +38,15 @@ const aggregrates = async () => {
 
   const coundData = await prisma.user.count();
 
-  console.log(countAge);
+  const countPost = await prisma.post.aggregate({
+    _count: {
+      title: true,
+    },
+    where: {
+      published: true,
+    },
+  });
+
+  console.log(countPost);
 };
 aggregrates();
